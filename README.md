@@ -21,7 +21,7 @@
 
 This is my first formal project as a complete newbie in programming. In this case, this project is a Discord bot called Piolin.js. This repository contains the source code of the bot. The bot is created with the intention of gaining experience with Discord's API, JavaScript, and Node.js.
 
-This bot sends different greetings during the day, more specifically at, 7 AM, 12 PM and 7 PM, this is inspired by a very common meme on LATAM in which some members of the family, usually the aunt of the family. The messages sent by this bot contain the following information. Is important to note that the bot will ONLY send these messages in the channel where you ran the commands
+This bot sends different greetings during the day, more specifically at, 7 AM, 12 PM and 7 PM, this is inspired by a very common meme on LATAM in which some members of the family,usually the aunt of the family, send a religious image with some text wishing blessings and a good day, evening or night to everyone. The messages sent by this bot contain the following information. Is important to note that the bot will ONLY send these messages in the channel where you ran the commands
 
   1. A title, this title will contain something related with the hour in which the message was send, for example, if it's 7 AM it will send something related to the morning or wakink up early, the same for 12 PM and 7 PM
   2. A description, also related to the hour in which the message was send
