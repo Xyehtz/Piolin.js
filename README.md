@@ -29,7 +29,7 @@ This bot sends different greetings during the day, more specifically at, 7 AM, 1
   4. A thumbnail with the hour
   5. A footer that shows who send the message and the hour of it
   
-  ![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/f1d6bf55-8aad-44a0-a420-32239b0ae1a4)
+  ![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/0680342a-01a1-4b94-bd27-10fe6d079600)
   
 ## How to use the bot
 
@@ -88,23 +88,23 @@ In this folder you'll find all the .js files for the commands, this bot contains
   
   Here is an example of what the command outputs
 
-  ![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/8ab1a8a1-1631-4b73-9071-d40c11173627)
+  ![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/b1bcc9f3-6864-40c1-b7c4-4b744e3c2f1a)
   
   `saludo-buenos-dias`, this command will send a greeting message at 7 AM GMT-5
   
-  ![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/639b56c2-4867-4c81-a086-aaa1ed624195)
+  ![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/cdf56dc8-cc94-4cea-ae4d-7558df6a5c4b)
 
   `saludo-buenas-tardes`, this command will send a greeting message at 12 PM GMT-5
   
-  ![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/5f5182c9-00a7-428c-a79f-f6f8c1b7ad4a)
+  ![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/0e027e11-0b81-4f91-89ec-03f1d78b9c10)
 
   `saludo-buenas-noches`, this command will send a greetings message at 7 PM GMT-5
   
-  ![ezgif com-resize](https://github.com/Xyehtz/Piolin.js/assets/33993070/89b8c513-b8fe-4870-a6b5-df96b0791954)
+  ![ezgif com-resize](https://github.com/Xyehtz/Piolin.js/assets/33993070/7f711769-e4ed-4530-b200-018c5fbdd733)
   
 Is very important to note that the commands of this bot are made using "/", thus every command inside of this project will use the `SlashCommandBuilder()` library from Discord.js, in the server this would look somthing like this.
 
-![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/a2e78e00-009a-4a0c-ab5a-c25eba10f9c6)
+![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/bbb338ca-0ea7-4155-bd2f-7fee0b417dd8)
 
 #### EmbedNeeds
 
@@ -134,7 +134,7 @@ This folder contains only one file, `devOnly.js`, a file that is created with th
 
 In this folder you can find, one folder with name `ready` and a file with name onMessage.js, the folder has a file with name console-log.js that is coded to log when the bot is online, the onMessage file will listen to every message inside of the server where the bot is and send a reply when a specific word is sent on the server, here's an example
 
-![ezgif com-resize (1)](https://github.com/Xyehtz/Piolin.js/assets/33993070/b06912ed-1146-4de3-a461-97175d956c05)
+![ezgif com-resize (1)](https://github.com/Xyehtz/Piolin.js/assets/33993070/14d47855-7761-41f5-bba4-76d837827f40)
 
 In English this translates to "Iseta is a"
 
