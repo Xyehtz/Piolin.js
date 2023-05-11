@@ -115,7 +115,7 @@ Inside this folder you can find another three folders which have the same name a
 This folder contains only one file, `devOnly.js`, a file that is created with the porpouse of validating if a user can or cannot use a command, in this case the file will obtain the user's ID and compare to the ID that is store inside of `USER_ID` in the .env file, if it doesn't match the ID it will send a message letting know the user that the command can only be used by developers, to use this validation inside of a command you'll need to write the following
 
   ```
-  .commandfordevelopers.js
+  commandfordevelopers.js
   const { SlashCommandBuilder } = require('discord.js');
 
   module.exports = {
