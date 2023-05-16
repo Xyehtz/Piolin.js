@@ -1,4 +1,4 @@
-const refranesBuenasTardes = [
+const refranesBuenasTardes = [ // An array with all the description text for the "saludos-buenas-tardes" command 
   'Que tengas una tarde tan bonita como tú.',
   'La tarde es un buen momento para reflexionar.',
   'Que la tarde te traiga alegría y felicidad.',
@@ -51,4 +51,4 @@ const refranesBuenasTardes = [
   'La tarde es el momento perfecto para reflexionar sobre los logros del día',
 ];
 
-module.exports = refranesBuenasTardes;
+module.exports = refranesBuenasTardes; // exports the array, allowing it to be used inside the command

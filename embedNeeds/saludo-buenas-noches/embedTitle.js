@@ -1,4 +1,4 @@
-const titulosBuenasNoches = [
+const titulosBuenasNoches = [ // An array with all the titles for the "saludos-buenas-noches" command // exports the array, allowing it to be used inside the command
   'El descanso es el mejor aliado del éxito',
   'La noche es un buen momento para reflexionar',
   'Descansa bien para empezar el día con energía',
@@ -52,4 +52,4 @@ const titulosBuenasNoches = [
   'Que los sueños se hagan realidad en el mañana',
 ];
 
-module.exports = titulosBuenasNoches;
+module.exports = titulosBuenasNoches; // exports the array, allowing it to be used inside the command

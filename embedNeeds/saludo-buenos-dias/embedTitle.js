@@ -1,4 +1,4 @@
-const titulosBuenosDias = [
+const titulosBuenosDias = [ // An array with all the titles for the "saludos-buenos-dias" command
   'Un nuevo día ha amanecido',
   'Comienza el día con energía',
   'Saludos matutinos',
@@ -51,4 +51,4 @@ const titulosBuenosDias = [
   'Un nuevo día, una nueva oportunidad para ser tu mejor versión',
 ];
 
-module.exports = titulosBuenosDias;
+module.exports = titulosBuenosDias; // exports the array, allowing it to be used inside the command

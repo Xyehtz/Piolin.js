@@ -1,4 +1,4 @@
-const refranesBuenasNoches = [
+const refranesBuenasNoches = [ // An array with all the description text for the "saludos-buenas-noches" command
   'Que descanses plácidamente y sueñes con los angelitos.',
   'Buenas noches, que los sueños te traigan la paz que necesitas.',
   'Que tus sueños sean tan dulces como tú lo eres.',
@@ -51,4 +51,4 @@ const refranesBuenasNoches = [
   'Que la noche te traiga tranquilidad y paz, para que puedas tener un sueño profundo y reparador.',
 ];
 
-module.exports = refranesBuenasNoches;
+module.exports = refranesBuenasNoches; // exports the array, allowing it to be used inside the command

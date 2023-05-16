@@ -1,4 +1,4 @@
-const buenasNoches = [
+const buenasNoches = [ // An array with all the images for the "saludos-buenas-noches" command
   'https://i.pinimg.com/236x/7d/66/40/7d66402cdd22e7c531ac57b4dc210288.jpg',
   'https://i.pinimg.com/236x/28/87/60/288760922bc92b860ebc155e9afd579c.jpg',
   'https://i.pinimg.com/236x/c6/e2/21/c6e22111bbe185676b716a8d97310936.jpg',
@@ -52,4 +52,4 @@ const buenasNoches = [
   'https://i.pinimg.com/236x/8b/98/a7/8b98a74b2121ed2c254204c0899e6b7a.jpg',
 ];
 
-module.exports = buenasNoches;
+module.exports = buenasNoches; // exports the array, allowing it to be used inside the command

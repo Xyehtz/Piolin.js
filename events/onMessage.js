@@ -1,4 +1,4 @@
-module.exports = message => {
+module.exports = message => { // Automatically sends a message when the iseta message is send
   if (message.author.bot) {
     return;
   }

@@ -1,4 +1,4 @@
-const buenosDias = [
+const buenosDias = [ // An array with all the images for the "saludos-buenos-dias" command
   'https://i.pinimg.com/474x/b5/35/e0/b535e029516042fa62f299f95df91ddd.jpg',
   'https://frases.top/wp-content/uploads/2020/03/oraciones-de-buenos-dias-300x250.jpg',
   'https://i.pinimg.com/474x/b5/35/e0/b535e029516042fa62f299f95df91ddd.jpg',
@@ -51,4 +51,4 @@ const buenosDias = [
   'https://i.pinimg.com/236x/e5/06/2e/e5062e99f6a4f2de1d529e22e8f577db.jpg',
 ];
 
-module.exports = buenosDias;
+module.exports = buenosDias; // exports the array, allowing it to be used inside the command

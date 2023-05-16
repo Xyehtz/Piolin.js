@@ -1,4 +1,4 @@
-const refranesBuenosDias = [
+const refranesBuenosDias = [ // An array with all the description text for the "saludos-buenos-dias" command
   'Al que madruga, Dios lo ayuda.',
   'El que madruga, encuentra la felicidad en la mañana.',
   'Madruga y verás milagros.',
@@ -51,4 +51,4 @@ const refranesBuenosDias = [
   'Madrugar te permite tener más tiempo para hacer una diferencia en el mundo.',
 ];
 
-module.exports = refranesBuenosDias;
+module.exports = refranesBuenosDias; // exports the array, allowing it to be used inside the command
