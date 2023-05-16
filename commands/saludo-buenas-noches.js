@@ -7,9 +7,9 @@ module.exports = {
   // Here we declare the name of the command and the description
   deleted: false,
   data: new SlashCommandBuilder()
-    .setName('saludo-buenas-noches') // Good night gretting in English
+    .setName('saludo-buenas-noches') // Good night greeting in English
     .setDescription(
-      'Envia un saludo de Buenas noches, todos los dias a las 7 PM' // Sends a good night gretting everyday at 7 PM
+      'Envia un saludo de Buenas noches, todos los dias a las 7 PM' // Sends a good night greeting everyday at 7 PM
     ),
 
   run: async ({ interaction, client, handler }) => {
