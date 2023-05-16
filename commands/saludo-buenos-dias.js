@@ -9,7 +9,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('saludo-buenos-dias') // Good morning greetings in English
     .setDescription(
-      'Envia un saludo de Buenos dias, todos los dias a las 7 AM' // Sends a good morning greeting, everyday at 7 AM
+      'Envía un saludo de Buenos días, todos los dias a las 7 AM' // Sends a good morning greeting, everyday at 7 AM
     ),
 
   run: async ({ interaction, client, handler }) => {

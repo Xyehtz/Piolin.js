@@ -23,7 +23,7 @@ This is my first formal project as a complete newbie in programming. In this cas
 
 This bot sends different greetings during the day, more specifically at, 7 AM, 12 PM and 7 PM, this is inspired by a very common meme on LATAM in which some members of the family,usually the aunt of the family, send a religious image with some text wishing blessings and a good day, evening or night to everyone. The messages sent by this bot contain the following information. Is important to note that the bot will ONLY send these messages in the channel where you ran the commands.
 
-  1. A title, this title will contain something related with the hour in which the message was send, for example, if it's 7 AM it will send something related to the morning or wakink up early, the same for 12 PM and 7 PM.
+  1. A title, this title will contain something related with the hour in which the message was send, for example, if it's 7 AM it will send something related to the morning or waking up early, the same for 12 PM and 7 PM.
   2. A description, also related to the hour in which the message was send.
   3. A religious message that wishes a good day for everyone.
   4. A thumbnail with the hour.
@@ -44,7 +44,7 @@ This project is divided in a series of folders and files, here is a small summar
   2. node_modules, inside this folder we have everything related to the different libraries used in the project.
   3. commands, all the bot's commands are inside this folder.
   4. embedNeeds, this folder has three more folders in which we have different files that are used by different commands of the bot.
-  5. validations, this folder has a file wich will validate one of the commands for developer use.
+  5. validations, this folder has a file which will validate one of the commands for developer use.
   6. events, one file and one folder are inside this folder, one of the files will console.log that the bot is online and the other will be waiting for someone to say a specific word and answer with something else.
   
 Looking at every folder we'll found the following, starting with. 
@@ -66,7 +66,7 @@ Following all the libraries is the intents of the bot, the intents of the bot ar
   `IntentsBitField.Flags.GuildMessages`, allows the bot to see all of the server messages, even when the message is edited or deleted.
   `IntentsBitField.Flags.MessageContent`, allows the bot to see what's the content of the message, like normal text, mentions or emojis.
 
-The next thing that we find is the status of the bot, in this case there are three different statuses, that translated to english reads, `Searching for good moring images`, `Searching for good evening images` and `Searching for good night images`.
+The next thing that we find is the status of the bot, in this case there are three different statuses, that translated to english reads, `Searching for good morning images`, `Searching for good evening images` and `Searching for good night images`.
 
 Then we found all the things related to server events and the imports used by the DJS-Commander which is the command handler used for this bot.
 
@@ -102,17 +102,17 @@ In this folder you'll find all the .js files for the commands, this bot contains
   
   ![ezgif com-resize](https://github.com/Xyehtz/Piolin.js/assets/33993070/7f711769-e4ed-4530-b200-018c5fbdd733)
   
-Is very important to note that the commands of this bot are made using "/", thus every command inside of this project will use the `SlashCommandBuilder()` library from Discord.js, in the server this would look somthing like this.
+Is very important to note that the commands of this bot are made using "/", thus every command inside of this project will use the `SlashCommandBuilder()` library from Discord.js, in the server this would look something like this.
 
 ![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/bbb338ca-0ea7-4155-bd2f-7fee0b417dd8)
 
 #### EmbedNeeds
 
-Inside this folder you can find another three folders which have the same name as the three greeting types of commands, then inside of every folder you'll find three .js files with the same name, being the first one `embedDescription.js`, the second one `embedImages.js`, and the last one `embedTitles.js`, inside of these files you'll find a lot of information related to the title of the embeds, the description of the embeds and the images used in the embeds, these are stored inside an array that is being exported to be used inside the embed builder code of the three comands.
+Inside this folder you can find another three folders which have the same name as the three greeting types of commands, then inside of every folder you'll find three .js files with the same name, being the first one `embedDescription.js`, the second one `embedImages.js`, and the last one `embedTitles.js`, inside of these files you'll find a lot of information related to the title of the embeds, the description of the embeds and the images used in the embeds, these are stored inside an array that is being exported to be used inside the embed builder code of the three commands.
 
 ### Validations 
 
-This folder contains only one file, `devOnly.js`, a file that is created with the porpouse of validating if a user can or cannot use a command, in this case the file will obtain the user's ID and compare to the ID that is store inside of `USER_ID` in the .env file, if it doesn't match the ID it will send a message letting know the user that the command can only be used by developers, to use this validation inside of a command you'll need to write the following.
+This folder contains only one file, `devOnly.js`, a file that is created with the purpose of validating if a user can or cannot use a command, in this case the file will obtain the user's ID and compare to the ID that is store inside of `USER_ID` in the .env file, if it doesn't match the ID it will send a message letting know the user that the command can only be used by developers, to use this validation inside of a command you'll need to write the following.
 
   ```
   commandfordevelopers.js

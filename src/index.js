@@ -18,15 +18,15 @@ const client = new Client({
 // Declare all the status, both the name and the type
 let status = [
   {
-    name: 'Buscando imagenes de buenos dias',
+    name: 'Buscando imágenes de buenos días',
     type: ActivityType.Playing,
   },
   {
-    name: 'Buscando imagenes de buenas tardes',
+    name: 'Buscando imágenes de buenas tardes',
     type: ActivityType.Playing,
   },
   {
-    name: 'Buscando imagenes de buenas noches',
+    name: 'Buscando imágenes de buenas noches',
     type: ActivityType.Playing,
   },
 ];
