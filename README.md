@@ -2,7 +2,7 @@
 
 **IMPORTANT: Some information of the images shown in this document, and in the different file of the project are in SPANISH**
 
-**INDEX**
+## **INDEX**
 
 - [What is this bot about](#what-is-this-bot-about)
 - [How to use the bot](#how-to-use-the-bot)
