@@ -1,9 +1,9 @@
 // Imports all the used libraries used in this project
-require('dotenv').config();
-const { Client, Intents, ActivityType, IntentsBitField, Collection } = require('discord.js');
-const { CommandHandler } = require('djs-commander');
+const { Client, IntentsBitField, Collection } = require('discord.js');
 const path = require('path');
-const WebSocket = require('ws');
+const fs = require('fs');
+const { TOKEN } = require('../config.json');
+const process = require('node:process');
 
 // Declare all the intents of the bot
 const client = new Client({
@@ -15,45 +15,52 @@ const client = new Client({
   ],
 });
 
-// Declare all the status, both the name and the type
-let status = [
-  {
-    name: 'Buscando imágenes de buenos días',
-    type: ActivityType.Playing,
-  },
-  {
-    name: 'Buscando imágenes de buenas tardes',
-    type: ActivityType.Playing,
-  },
-  {
-    name: 'Buscando imágenes de buenas noches',
-    type: ActivityType.Playing,
-  },
-];
+client.commands = new Collection();
 
-// Randomly selects a status and changes it every 5 minutes
-client.on('ready', c => {
-  setInterval(() => {
-    let random = Math.floor(Math.random() * status.length);
-    client.user.setActivity(status[random]);
-  }, 300000);
+const foldersPath = path.join(__dirname, '..', 'commands');
+const commandFolders = fs.readdirSync(foldersPath);
+
+for ( const folder of commandFolders ) {
+  const commandsPath = path.join(foldersPath, folder);
+  const commandFiles = fs.readdirSync(commandsPath).filter((file) => file.endsWith('.js'));
+
+  for ( const file of commandFiles) {
+    const filePath = path.join(commandsPath, file);
+    const command = require(filePath);
+    if ('data' in command && 'execute' in command) {
+      client.commands.set(command.data.name, command);
+    } else {
+      console.log(
+        `[WARNING] The command at ${filePath} is missing a required "data" or "execute" property`
+      );
+    }
+  }
+}
+
+const eventsPath = path.join(__dirname, '..', 'events');
+const eventFiles = fs.readdirSync(eventsPath).filter((file) => file.endsWith('.js'));
+
+for ( const file of eventFiles) {
+  const filePath = path.join(eventsPath, file);
+  const event = require(filePath);
+
+  if (event.once) {
+    client.once(event.name, (...args) => event.execute(...args));
+  } else {
+    client.on(event.name, (...args) => event.execute(...args));
+  }
+}
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.log('Unhandled Rejection at:', promise, 'reason:', reason);
 });
 
-// This will allow the onMessage file to send the messages
-const messageCreate = require('../events/onMessage');
-client.on('messageCreate', messageCreate);
-
-// Console logs all the messages send in the servers where the bot is online
-client.on('messageCreate', message => {
-  console.log(message.content);
+process.on('uncaughtException', (err) => {
+  console.log('Uncaught Exception:', err);
 });
 
-new CommandHandler({
-  client,
-  commandsPath: path.join(__dirname, '..', 'commands'),
-  //testServer: process.env.GUILD_ID,
-  eventsPath: path.join(__dirname, '..', 'events'),
-  validationsPath: path.join(__dirname, '..', 'validations'),
+process.on('uncaughtExceptionMonitor', (err, origin) => {
+  console.log('Uncaught Exception Monitor:', err, origin);
 });
 
-client.login(process.env.TOKEN);
+client.login(TOKEN);
