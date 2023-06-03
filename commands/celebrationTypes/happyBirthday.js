@@ -1,14 +1,26 @@
-const { SlashCommandBuilder, EmbedBuilder, ChannelType } = require('discord.js');
-const { happyBirthdayTitle } = require('../../embedNeeds/celebrationEmbeds/embedTitles');
-const { happyBirthdayDescription } = require('../../embedNeeds/celebrationEmbeds/embedDescription');
-const { happyBirthdayImages } = require('../../embedNeeds/celebrationEmbeds/embedImages');
+const {
+  SlashCommandBuilder,
+  EmbedBuilder,
+  ChannelType,
+} = require('discord.js');
+const {
+  happyBirthdayTitle,
+} = require('../../embedNeeds/celebrationEmbeds/embedTitles');
+const {
+  happyBirthdayDescription,
+} = require('../../embedNeeds/celebrationEmbeds/embedDescription');
+const {
+  happyBirthdayImages,
+} = require('../../embedNeeds/celebrationEmbeds/embedImages');
 const schedule = require('node-schedule');
 const moment = require('moment');
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('happy-birthday')
-    .setDescription('Send a happy birthday celebration to the user that you want')
+    .setDescription(
+      'Send a happy birthday celebration to the user that you want'
+    )
     .addUserOption((option) =>
       option
         .setName('user')
@@ -18,14 +30,18 @@ module.exports = {
     .addChannelOption((option) =>
       option
         .setName('channel')
-        .setDescription('Choose the channel where you want the message to be send')
+        .setDescription(
+          'Choose the channel where you want the message to be send'
+        )
         .addChannelTypes(ChannelType.GuildText)
         .setRequired(true)
     )
     .addStringOption((option) =>
       option
         .setName('date')
-        .setDescription('Please enter the date, make sure that the format is the following MM-DD')
+        .setDescription(
+          'Please enter the date, make sure that the format is the following MM-DD'
+        )
         .setRequired(true)
     )
     .addStringOption((option) =>
@@ -63,7 +79,6 @@ module.exports = {
     ),
 
   async execute(interaction) {
-
     const user = interaction.options.getUser('user');
     const channel = interaction.options.getChannel('channel');
     const timezone = interaction.options.getString('timezone');
@@ -73,47 +88,58 @@ module.exports = {
 
     const birthdayDate = moment(`${date}-${currentYear}`, 'MM-DD-YYYY');
 
-    const [ month, day ] = date.split('-');
+    const [month, day] = date.split('-');
 
     const convertedMonth = parseInt(month) - 1;
+    const convertedDay = parseInt(day);
 
     if (!birthdayDate.isValid()) {
-      return interaction.reply({ content: 'You entered an invalid date, please try again using a valid date', ephemeral: true});
+      return interaction.reply({
+        content:
+          'You entered an invalid date, please try again using a valid date',
+        ephemeral: true,
+      });
     }
 
-    interaction.reply(
-      {
-        content: `Happy birthday message has been configured successfully, it will be send on ${date} at 5 PM time ${timezone}, on ${channel} channel celebrating the birthday of ${user}`, 
-        ephemeral: true
-      });
+    interaction.reply({
+      content: `Happy birthday message has been configured successfully, it will be send on ${date} at 5 PM time ${timezone}, on ${channel} channel celebrating the birthday of ${user}`,
+      ephemeral: true,
+    });
 
     const scheduleHappyBirthday = schedule.scheduleJob(
       {
         month: convertedMonth,
-        day: day,
+        day: convertedDay,
         hour: 17,
         minute: 0,
         tz: timezone,
       },
       function () {
-
-        const randomTitle = Math.floor(Math.random() * happyBirthdayTitle.length);
+        const randomTitle = Math.floor(
+          Math.random() * happyBirthdayTitle.length
+        );
         const chosenTitle = happyBirthdayTitle[randomTitle];
 
-        const randomDescription = Math.floor(Math.random() * happyBirthdayDescription.length);
+        const randomDescription = Math.floor(
+          Math.random() * happyBirthdayDescription.length
+        );
         const chosenDescription = happyBirthdayDescription[randomDescription];
 
-        const randomImage = Math.floor(Math.random() * happyBirthdayImages.length);
+        const randomImage = Math.floor(
+          Math.random() * happyBirthdayImages.length
+        );
         const chosenImage = happyBirthdayImages[randomImage];
 
         const embedHappyBirthday = new EmbedBuilder()
           .setAuthor({
             name: interaction.client.user.tag,
             iconURL: interaction.client.user.displayAvatarURL(),
-            url: 'https://shorturl.at/hnuT8'
+            url: 'https://shorturl.at/hnuT8',
           })
           .setTitle(chosenTitle)
-          .setDescription(`${chosenDescription}\n\nHappy birthday ${user} from ${interaction.user}`)
+          .setDescription(
+            `${chosenDescription}\n\nHappy birthday ${user} from ${interaction.user}`
+          )
           .setImage(chosenImage)
           .setColor('Random')
           .setTimestamp()
@@ -121,9 +147,9 @@ module.exports = {
             text: `Message sent by ${interaction.user.tag} and ${interaction.client.user.tag}`,
             iconURL: interaction.user.displayAvatarURL(),
           });
-        
-        channel.send({ embeds: [embedHappyBirthday]});
+
+        channel.send({ embeds: [embedHappyBirthday] });
       }
     );
-  }
+  },
 };

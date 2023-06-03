@@ -2,20 +2,28 @@
 
 ## **INDEX**
 
-- [Version 2.0.0](#version-2.0.0)
-- [Version 1.0.3](#version-1.0.3)
-- [Version 1.0.2](#version-1.0.2)
-- [Version 1.0.1](#version-1.0.1)
-- [Version 1.0.0](#version-1.0.0)
+- [PATCH NOTES](#patch-notes)
+  - [**INDEX**](#index)
+  - [Version 2.0.1 (06-03-2023)](#version-201-06-03-2023)
+  - [Version 2.0.0 (05-31-2023)](#version-200-05-31-2023)
+  - [Version 1.0.3 (05-16-2023)](#version-103-05-16-2023)
+  - [Version 1.0.2 (05-14-2023)](#version-102-05-14-2023)
+  - [Version 1.0.1 (05-11-2023)](#version-101-05-11-2023)
+  - [Version 1.0.0 (05-10-2023)](#version-100-05-10-2023)
+  
+## Version 2.0.1 (06-03-2023)
+
+- Fixed a bug where the happy birthday message would be send everyday of the month
+
 ## Version 2.0.0 (05-31-2023)
 
 - Piolin.js goes online for everyone.
 - Completely revamped the command handler, now Piolin.js uses the Discord.js command and event handler
 - Added 3 new commands
-    - happy-birthday, send a happy birthday celebration to the user that you want.
-    - daily-quote, sends a quote from a historical figure everyday at 2 PM.
-    - all-greetings, set all the greetings in one go.
-    - help, shows the command list.
+    1. happy-birthday, send a happy birthday celebration to the user that you want.
+    2. daily-quote, sends a quote from a historical figure everyday at 2 PM.
+    3. all-greetings, set all the greetings in one go.
+    4. help, shows the command list.
 - Ping no longer is only available for the Dev.
 - The bot is now completely in english.
 
@@ -35,4 +43,4 @@
 
 - Initial project launch.
 - Basic command functionality.
-    - Send commands everyday at 7 AM, 12 PM and 7 PM.
+    1. Send commands everyday at 7 AM, 12 PM and 7 PM.
