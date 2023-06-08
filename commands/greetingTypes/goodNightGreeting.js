@@ -6,7 +6,7 @@ const { goodNightImages } = require('../../embedNeeds/greetingEmbeds/embedImages
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('good-night-greetings')
+    .setName('good-night-greeting')
     .setDescription(
       'Sends an embed with a good night greeting, everyday at 7 PM'
     )

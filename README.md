@@ -1,164 +1,176 @@
-# Piolin.js
-
-**IMPORTANT: Some information of the images shown in this document, and in the different file of the project are in SPANISH.**
+# Piolin.js, a basic Discord bot whishing you a great day every day
 
 ## **INDEX**
 
-- [What is this bot about](#what-is-this-bot-about)
-- [How to use the bot](#how-to-use-the-bot)
-- [What's inside of this project](#whats-inside-of-this-project)
-  - [SRC](#src)
-  - [Node_modules](#node_modules)
-  - [Commands](#commands)
-    - [EmbedNeeds](#embedneeds)
-  - [Validations](#validations)
-  - [Events](#events)
-  - [.ENV](#env)
-- [LICENSE](#license)
-- [Gratitudes](#gratitudes)
+- [Piolin.js, a basic Discord bot whishing you a great day every day](#piolinjs-a-basic-discord-bot-whishing-you-a-great-day-every-day)
+  - [**INDEX**](#index)
+  - [Project Description](#project-description)
+    - [Technologies Used](#technologies-used)
+  - [Commands List](#commands-list)
+  - [Contributions](#contributions)
+    - [Contribution Process](#contribution-process)
+    - [Contribution Guidelines](#contribution-guidelines)
+  - [How to Use the Project](#how-to-use-the-project)
+  - [License](#license)
+  - [Gratitude](#gratitude)
 
-## What is this bot about
+## Project Description
 
-This is my first formal project as a complete newbie in programming. In this case, this project is a Discord bot called Piolin.js. This repository contains the source code of the bot. The bot is created with the intention of gaining experience with Discord's API, JavaScript, and Node.js.
+*Hey, I'm glad you have arrived at this project, before the whole project description I would like to leave the invite link of my bot if you want to make use of it:*
 
-This bot sends different greetings during the day, more specifically at, 7 AM, 12 PM and 7 PM, this is inspired by a very common meme on LATAM in which some members of the family,usually the aunt of the family, send a religious image with some text wishing blessings and a good day, evening or night to everyone. The messages sent by this bot contain the following information. Is important to note that the bot will ONLY send these messages in the channel where you ran the commands.
+**<https://discord.com/api/oauth2/authorize?client_id=1103790916466131065&permissions=277025638464&scope=bot%20applications.commands>**
 
-  1. A title, this title will contain something related with the hour in which the message was send, for example, if it's 7 AM it will send something related to the morning or waking up early, the same for 12 PM and 7 PM.
-  2. A description, also related to the hour in which the message was send.
-  3. A religious message that wishes a good day for everyone.
-  4. A thumbnail with the hour.
-  5. A footer that shows who send the message and the hour of it.
-  
-  ![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/0680342a-01a1-4b94-bd27-10fe6d079600)
-  
-## How to use the bot
+Piolin.js is a simple Discord bot with one simple purpose in mind, sending greetings to everyone inside a Discord server everyday. When you add Piolin.js to your Discord server you'll be able to use a series of commands to personalize your experience with the different greetings of the bot, below I leave a small description of the commands.
 
-Sadly if you want just to use this bot on your server you won't be able to because this bot isn't available to join servers because it can't be added by any user but me. If later I decide to make this bot a public one I will let now everyone posting an update related to it and where you'll be able to find the bot.
+  `all-greetings`: This command is a simple and easy way to configure the bot in your server, with this command the bot will send automatically the different greetings during the day, more specifically at 7 AM, 12 PM and 7 PM, each one being the good morning greeting, the good afternoon greeting and the good night greeting respectively.
 
-**If you really want to have this bot on your Discord server please contact me on GitHub or in Discord, User: jajajacker halo#6754.**
+  `good-morning-greeting`: This command allows the user to configure the bot so that it only sends the good morning greeting, the time doesn't change, it stays at 7 AM
 
-## What's inside of this project
+  `good-afternoon-greeting`: The same as the `good-morning-greeting`, this command will make the bot send only the good afternoon greetings at 12 PM.
 
-This project is divided in a series of folders and files, here is a small summary of what you can find in each one.
-  1. src, short for source.
-  2. node_modules, inside this folder we have everything related to the different libraries used in the project.
-  3. commands, all the bot's commands are inside this folder.
-  4. embedNeeds, this folder has three more folders in which we have different files that are used by different commands of the bot.
-  5. validations, this folder has a file which will validate one of the commands for developer use.
-  6. events, one file and one folder are inside this folder, one of the files will console.log that the bot is online and the other will be waiting for someone to say a specific word and answer with something else.
-  
-Looking at every folder we'll found the following, starting with. 
+  `good-night-greeting`: Equal to the past two commands, with this command you'll only receive the good night greeting at 7 PM.
 
-### SRC
+In the case of this commands the structure of the message is the same:
 
-Inside of the src or source folder we have the main file of this project the index.js file, this file contains all the libraries that the bot needs to work, which are.
-  
-  1. Discord.js.
-  2. DJS-Commander.
-  3. Path.
-  4. Ws.
-  5. Dotenv.
+  A basic title related to the time of the day.
+  A description related to the title.
+  An image.
 
-Following all the libraries is the intents of the bot, the intents of the bot are a way in which Discord can know what things the bot is going to be able to see and do, this bot uses four.
+Every message is send as an embed so that it is more attractive to the user.
 
-  `IntentsBitField.Flags.Guilds`, this allows the bot to know everything related to server events.
-  `IntentsBitField.Flags.GuildMembers`, lets the bot know everything related to the members of the server and events like when someone joins or leaves.
-  `IntentsBitField.Flags.GuildMessages`, allows the bot to see all of the server messages, even when the message is edited or deleted.
-  `IntentsBitField.Flags.MessageContent`, allows the bot to see what's the content of the message, like normal text, mentions or emojis.
+**You MUST select a channel and a timezone for the commands to work.**
 
-The next thing that we find is the status of the bot, in this case there are three different statuses, that translated to english reads, `Searching for good morning images`, `Searching for good evening images` and `Searching for good night images`.
+Here is an example:
 
-Then we found all the things related to server events and the imports used by the DJS-Commander which is the command handler used for this bot.
+![Embed Example](media/images/2023-06-06-21-11-35.png)
 
-### Node_modules
+As the user you are able to select a timezone, in this case you select a principal city, lets say New York, whit this information the bot will send the message at the specified hours at the user's time, with this we make sure that you receive the message at the correct hour and the experience is way better for everyone on the server.
 
-This folder contains all the information related to the libraries used in this bot.
+If you want to know what the other commands do you can jump to [Command list](#commands-list)
 
-### Commands
+### Technologies Used
 
-In this folder you'll find all the .js files for the commands, this bot contains four different commands.
+This bot uses the following technologies to work properly:
 
-  `ping.js`, sends the latency of the bot, this command is only for developers, to be able to use this command, download the project and create a .env file in which you'll enter the following code.
+  Node.js.
+  Discord.js.
+  Fs.
+  Path.
+  Node-Schedule.
 
-  ```
-  .env
-  TOKEN = 'The Token of your bot goes here'
-  USER_ID = Your Discord user ID goes here
-  ```
-  
-  Here is an example of what the command outputs.
+The single most important technology used on this project is Node.js, this technology allows us to easily have a runtime environment for out bot, making JavaScript able to create this type of projects without the use of more complex technologies[^1].
 
-  ![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/b1bcc9f3-6864-40c1-b7c4-4b744e3c2f1a)
-  
-  `saludo-buenos-dias`, this command will send a greeting message at 7 AM GMT-5.
-  
-  ![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/cdf56dc8-cc94-4cea-ae4d-7558df6a5c4b)
+Following Node.js we have, Discord.js, one of the best libraries for the creation of Discord bots using JavaScript, this library allows us to easily create our bot, and most importantly create the command and event handlers which makes the creation of the bot a lot easier, not only for the first version but for the following versions because of it being very simple to update, add, delete or change things like the commands code or even the events, although Piolin.js isn't connected to a database, Discord.js also makes it easier to connect the bot to a database allowing for even more flexibility and more in depth bots.
 
-  `saludo-buenas-tardes`, this command will send a greeting message at 12 PM GMT-5.
-  
-  ![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/0e027e11-0b81-4f91-89ec-03f1d78b9c10)
+Both Fs and Path are the following libraries used in this bot, this libraries are very important because are the ones used not only for the command and event handlers but also for the upload of the command to Discord's API, and for the response when a command or event is triggered.
 
-  `saludo-buenas-noches`, this command will send a greetings message at 7 PM GMT-5.
-  
-  ![ezgif com-resize](https://github.com/Xyehtz/Piolin.js/assets/33993070/7f711769-e4ed-4530-b200-018c5fbdd733)
-  
-Is very important to note that the commands of this bot are made using "/", thus every command inside of this project will use the `SlashCommandBuilder()` library from Discord.js, in the server this would look something like this.
+Last but not least is Node-Schedule, this is the library that allows the bot to send the different greetings, daily quotes and birthday celebration messages at the selected time on the selected timezone. This library gives the user a easy to understand way to properly set different tasks at a selected date and time.
 
-![image](https://github.com/Xyehtz/Piolin.js/assets/33993070/bbb338ca-0ea7-4155-bd2f-7fee0b417dd8)
+## Commands List
 
-#### EmbedNeeds
+Here is a full list of the commands available on Piolin.js, keep in mind that I'm skipping the commands that I've already mentioned above:
 
-Inside this folder you can find another three folders which have the same name as the three greeting types of commands, then inside of every folder you'll find three .js files with the same name, being the first one `embedDescription.js`, the second one `embedImages.js`, and the last one `embedTitles.js`, inside of these files you'll find a lot of information related to the title of the embeds, the description of the embeds and the images used in the embeds, these are stored inside an array that is being exported to be used inside the embed builder code of the three commands.
+  `happy-birthday`: This command as the name specifies is centered in sending a happy birthday, for this command to work the user needs to fill the following inputs:
 
-### Validations 
+  1. User: This input is required so that the bot can give the happy birthday celebration to the intended user.
+  2. Channel: The user needs to select where he wants the message to be sent.
+  3. Date: The date of the user's birthday, it must be send in the following format MM-DD.
+  4. Timezone: The bot sends the message at 5 PM, but to make better for the user is important to select the user's timezone to have the best user experience.
 
-This folder contains only one file, `devOnly.js`, a file that is created with the purpose of validating if a user can or cannot use a command, in this case the file will obtain the user's ID and compare to the ID that is store inside of `USER_ID` in the .env file, if it doesn't match the ID it will send a message letting know the user that the command can only be used by developers, to use this validation inside of a command you'll need to write the following.
+When the birthday date arrives, the bot will send a message like this:
 
-  ```
-  commandfordevelopers.js
-  const { SlashCommandBuilder } = require('discord.js');
+![Birthday message](media/images/2023-06-06-22-20-06.png)
 
-  module.exports = {
-    data: new SlashCommandBuilder() 
-      .setName('name of the command') 
-      .setDescription('description of the command'), 
+  `daily-quote`: As the name indicates, the bot sends a daily quote from a historical figure, in this case the quotes are centered in motivation, the competition of goals and dreams, etc...
 
-    run: async ({ interaction, client, handler }) => {
-      command code
-    },
-    devOnly: true, //devOnly: true is used to verify the ID of the user using the command if it doesn't match it will send an error message
-  };
- ```
+  In this case, similar to the `happy-birthday` command the bot need a series of inputs, in this case it needs two:
 
-### Events
+  1. Timezone: The bot will send this type of messages everyday at 2 PM, for a better experience the user needs to add a timezone so the message arrives at 2 PM at the time where the user is.
+  2. Channel: The user needs to select a channel where he wants to receive the message.
 
-In this folder you can find, one folder with name `ready` and a file with name onMessage.js, the folder has a file with name console-log.js that is coded to log when the bot is online, the onMessage file will listen to every message inside of the server where the bot is and send a reply when a specific word is sent on the server, here's an example.
+  `help`: This commands sends a message in the form of an embed with all the information related to the commands.
 
-![ezgif com-resize (1)](https://github.com/Xyehtz/Piolin.js/assets/33993070/14d47855-7761-41f5-bba4-76d837827f40)
+  `ping`: With this command the user can now the latency of the bot and also know if the bot is working properly.
 
-In English this translates to "Iseta is a"
+## Contributions
 
-### .ENV
+At the moment I'm not interested in adding new features to the bot because I want to focus in new projects, but if you want to add new features, or use this bot as a template or way to learn about JavaScript, Node.js and Discord.js you are free to contribute to this project, but for this reason I leave below the contribution process and a series of guidelines for the contributors:
 
-.env is the last file inside of this project, in this file you can save the most important information of your bot and yourself, like.
+### Contribution Process
 
-  ```
-  .env
-  TOKEN = 'Your bot's token provided by Discord'
-  GUILD_ID = The ID of the test server
-  CLIENT_ID = The ID of the bot
-  USER_ID = Your ID
-  ```
-Making use of the `.gitignore` file you can make sure that this information is not uploaded when creating your own repository.
+Here is a list of the things that you should do to contribute to this project:
 
-### LICENSE
+  1. Fork this repository and clone it to your local machine.
+  2. Create a new branch for you contribution using:
+    `git checkout -b "the name of your contribution"`.
+  3. Make the necessary changes and improvements on your local branch.
+  4. Make sure to follow a style guideline and maintain a code consistency.
+  5. Commit your changes using:
+    `git commit -m "commit description"`.
+  6. Open a pull request so I can review your changes.
+
+### Contribution Guidelines
+
+  1. Please maintain a respectful and friendly tone in all interactions related to this project.
+  2. If you're reporting a bug, provide detailed information on how to reproduce it.
+  3. If you're proposing a new feature, explain its usefulness and provide code examples if possible.
+  4. Whenever possible, include unit tests or integration tests to support your changes.
+
+I appreciate your time and contributions to make this project better. I look forward to your participation!
+
+## How to Use the Project
+
+If you want to use this bot follow these steps:
+
+  1. Go to <https://discord.com/developers/applications> and create a new application on the `New Applications` button at the top right corner.
+    <img alt="New Application" widht="30px" src="media/images/2023-06-07-19-14-07.png"/>
+  2. After you have created a new application go to the "Bot" option on the left menu.
+    <img alt="New Application" widht="30px" src="media/images/2023-06-07-19-20-52.png"/>
+  3. Add all the Privileged Gateway Intents to your application.
+    <img alt="New Application" widht="30px" src="media/images/2023-06-07-19-20-52.png.png"/>
+  4. Go to OAuth2 and then choose URL Generator, here your gonna create the link invite of your bot.
+    <img alt="New Application" widht="30px" src="media/images/2023-06-07-19-20-52.png.png.png.png"/>
+  5. On Scopes select `bot` and `applications.commands`.
+    <img alt="New Application" widht="30px" src="media/images/2023-06-07-19-20-52.png.png.png.png.png"/>
+  6. After this a new window called `BOT PERMISSIONS` will appear, on this select the following options.
+    <img alt="New Application" widht="30px" src="media/images/2023-06-07-19-20-52.png.png.png.png.png"/>
+  7. Now copy your bot invite link on the bottom of the page, then add it to your Discord server.
+  8. On this repository you'll see a file called `configExample.json`, inside of this file you will see the following.
+
+    ```json
+    {
+      "TOKEN": "BOT'S_TOKEN",
+      "CLIENT_ID": "BOT'S_ID"
+    }
+    ```
+
+  Change the information and add your bot information, to obtain your bot ClientID you need to go to `General Information` on the left menu, you'll see a title that says `APPLICATION ID` right below your bot description.
+
+  For your bot token go to `Bot` on the left menu and below your bot name you have a section called `TOKEN`, press the reset token and follow the instructions to obtain the token.
+
+  After this, put the information on the `configExample.json` file and change the name to `config.json`, if you did all of the steps correctly you'll be able to put this bot online and start making contributions.
+
+## License
 
 This project is created under the BSD License. Consult the LICENSE file for more details.
 
-### Gratitudes
+## Gratitude
 
-I want to show my gratitude and respect for the person running the YouTube Channel "Under Ctrl", "notunderctrl" on GitHub for the creation of the DJS-Commander, and a great series of tutorials on how to create a Discord bot, which greatly improved the creation of this bot, making it easier to write and understand, I leave the links for his YouTube Channel, GitHub profile and Discord Server below.
+I want to show my gratitude and respect to all the people that make part of the Discord.js team, a group of persons that created a truly incredible library for the creation of Discord bots, also I want to show my respect to the persons running the YouTube Channel "Under Ctrl" or "notunderctrl" on GitHub, for being one the main reasons of keep on trying and creating Discord bots with his short and easy to understand videos related to the creation of Discord bots, I leave all the links related to "Under Ctrl" and "Discord.js" below.
 
-- YouTube Channel: https://www.youtube.com/@underctrl
-- GitHub Profile: https://github.com/notunderctrl
-- Discord Server: https://discord.underctrl.io
+Under Ctrl related links:
+
+- Under Ctrl YouTube Channel: <https://www.youtube.com/@underctrl>
+- Under Ctrl GitHub Profile: <https://github.com/notunderctrl>
+- Under Ctrl Discord Server: <https://discord.underctrl.io>
+
+Discord.js related links:
+
+- Discord.js Website: <https://discord.js.org/>
+- Discord.js Guide: <https://discordjs.guide/>
+- Discord.js GitHub Repository: <https://github.com/discordjs/discord.js>
+- Discord.js GitHub Profile: <https://github.com/discordjs>
+- Discord.js Documentation: <https://old.discordjs.dev/#/docs/discord.js/main/general/welcome>
+- Discord.js Discord Server: <https://discord.gg/djs>
+
+[^1]: For a better understanding of node.js, see <https://www.freecodecamp.org/news/what-is-node-js/>
