@@ -1,2 +1,4 @@
 config.json
 thingsToDo.txt
+node_modules
+.vscode

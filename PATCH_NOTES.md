@@ -33,7 +33,7 @@
 
 ## Version 1.0.2 (05-14-2023)
 
-- Fixed a but were all the embed content was the same everyday.
+- Fixed a bug were all the embed content was the same everyday.
 
 ## Version 1.0.1 (05-11-2023)
 
